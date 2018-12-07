@@ -1,2 +1,3 @@
-# packer-baas-server
-Packer templates of BaaS Servers 
+# Packer templates of BaaS Servers 
+
+Creating AWS AMI, Vagrant Box, etc...
