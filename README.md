@@ -43,8 +43,12 @@ variables.sample.json を variables.json にコピーし、 作成する AMI に
 - name: AMI名 （default: "All-In-One-Servers"）
 - version: サーバソフトのバージョン (default: "7.5.0")
 - region: リージョン名 (必須。 default: "ap-northeast-1")
-- source_ami: Base AMI ID (必須。 default: "ami-25bd2743"。 Centos7 オフィシャル AMI)
-- ssh_username: SSH ユーザ名 （必須。 default: "centos"。 Base AMI に合わせて設定する)
+- source_ami: Base AMI ID (必須。 default: "ami-25bd2743")
+  - [Centos7 オフィシャル AMI](https://wiki.centos.org/Cloud/AWS): ami-25bd2743
+  - [Amazon Linux 2 オフィシャル AMI](https://aws.amazon.com/jp/amazon-linux-2/release-notes/): ami-00f9d04b3b3092052
+- ssh_username: SSH ユーザ名 （必須。 default: "centos")
+  - Centos7 オフィシャル AMI: centos
+  - Amazon Linux 2 オフィシャル AMI: ec2-user 
 - instance_type: 仮想マシンのインスタンスタイプ (必須。 default: "t2.large")
 
 ### AMI の作成
@@ -60,16 +64,8 @@ variables.sample.json を variables.json にコピーし、 作成する AMI に
 - 本テンプレートでは、 セキュリティグループの設定を一切行っていません。 必要に応じて設定してください。
   - BaaS Server、 SSEPush Server をインターネットに公開する場合は、インバウンド 8080/tcp を許可してください。
 
-## AMI の一般公開
-
+## AMI の公開
 - AWS の[ユーザガイド](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/sharingamis-intro.html)を参照してください。
 - source_ami に設定した AMI は AWS Marketplace にある AMI の場合は、アカウント指定による限定公開できますが、一般公開はできません。
-  - [Amazon Linux 2 オフィシャル AMI](https://aws.amazon.com/jp/amazon-linux-2/release-notes/)の一般公開ができます。
-  - [Centos7 オフィシャル AMI](https://wiki.centos.org/Cloud/AWS) の一般公開ができません。
-
-## 注意事項
-
-- source_ami に合わせて、 ssh_username を設定する必要あります。
-  - source_ami が Centos7 オフィシャル AMI の 場合は、 ssh_username: "centos"
-  - source_ami が Amazon Linux オフィシャル AMI の場合は、 ssh_username: "ec2-user"
+  - Amazon Linux 2 オフィシャル AMI の一般公開ができますが、　Centos7 オフィシャル AMI の一般公開ができません。
 
