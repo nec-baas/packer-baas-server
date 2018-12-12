@@ -5,7 +5,7 @@
         "access_key": "{{ user `aws_access_key_id` }}",
         "secret_key": "{{ user `aws_secret_access_key` }}",
         "ami_name": "necbaas {{ user `name` }} {{ user `version` }} {{timestamp}}",
-        "ami_description": "AMI with {{ user `name` }} pre-installed",
+        "ami_description": "Base AMI({{ user `source_ami` }}) with necbaas {{ user `name` }} pre-installed",
         "associate_public_ip_address": true,
         "instance_type": "{{ user `instance_type` }}",
         "region": "{{ user `region` }}",
