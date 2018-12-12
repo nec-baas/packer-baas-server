@@ -1,0 +1,10 @@
+{
+    "name": "All-In-One-Servers",
+    "version": "v7.5.0",
+    "aws_access_key_id": "",
+    "aws_secret_access_key": "",
+    "region": "ap-northeast-1",
+    "source_ami": "ami-25bd2743",
+    "ssh_username": "centos",
+    "instance_type": "t2.large"
+}
