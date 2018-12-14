@@ -9,7 +9,7 @@ NEC モバイルバックエンド基盤 サーバ一式をプリインストー
 
 ## 利用準備
 
-### Packer のインストール
+### Packer インストール
 
     $ wget https://releases.hashicorp.com/packer/1.3.3/packer_1.3.3_linux_amd64.zip
     $ unzip packer_1.3.3_linux_amd64.zip
@@ -23,7 +23,7 @@ AWS デベロッパコンソールより取得します。
 
 ## 使い方
 
-### Playbook のダウンロード
+### Playbook ダウンロード
 
     $ ./get-playbook.sh
 
@@ -51,20 +51,17 @@ variables.sample.json を variables.json にコピーし、 作成する AMI に
   - Amazon Linux 2 オフィシャル AMI: ec2-user 
 - instance_type: 仮想マシンのインスタンスタイプ (必須。 default: "t2.large")
 
-### AMI の作成
+### AMI 作成
 
     $ ./build_ami.sh
 
 正常に作成できた場合は、コンソールログからイメージの格納リージョンと AMI ID が出力されます。
 
-### 動作確認方法
+### AMI 使い方
 
-- AWS デベロッパコンソール上で、作成した AMI を利用し、 EC2 を作成します。
-- サーバの[マニュアル](https://nec-baas.github.io/documents.html)を参照し、 サーバの動作を確認します。
-- 本テンプレートでは、 セキュリティグループの設定を一切行っていません。 必要に応じて設定してください。
-  - BaaS Server、 SSEPush Server をインターネットに公開する場合は、インバウンド 8080/tcp を許可してください。
+[こちら](./aws-ami-usage.md)を参照してください。
 
-## AMI の公開
+## AMI 公開
 - AWS の[ユーザガイド](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/sharingamis-intro.html)を参照してください。
 - source_ami に設定した AMI は AWS Marketplace にある AMI の場合は、アカウント指定による限定公開できますが、一般公開はできません。
   - Amazon Linux 2 オフィシャル AMI の一般公開ができますが、　Centos7 オフィシャル AMI の一般公開ができません。
